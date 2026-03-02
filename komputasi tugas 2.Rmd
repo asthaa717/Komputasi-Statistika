@@ -1,0 +1,37 @@
+---
+output:
+  word_document: default
+  html_document: default
+---
+```{r}
+data(mtcars)
+head(mtcars)
+```
+
+```{r}
+pca_mtcars <- prcomp(mtcars, scale. = TRUE)
+summary(pca_mtcars)
+```
+
+```{r}
+pca_mtcars$sdev^2
+```
+
+```{r}
+pca_mtcars$rotation
+```
+
+```{r}
+head(pca_mtcars$x)
+```
+
+```{r}
+plot(pca_mtcars, type = "l")
+```
+
+```{r}
+library(factoextra)
+fviz_pca_biplot(pca_mtcars,
+                label = "var",
+                repel = TRUE)
+```
